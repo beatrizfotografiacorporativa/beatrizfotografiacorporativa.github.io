@@ -1,18 +1,488 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>beatrizfotografiacorporativa</title>
-    <link rel="icon" type="image/png" href="./img/ico/camera_ico.png">
+    <title>Beatriz Vergara | Fotografía Profesional & Corporativa</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Servicios de fotografía profesional en Panamá. Retratos corporativos, fotografía empresarial y sesiones personales por Beatriz Vergara. Calidad y elegancia.">
+    <meta name="keywords" content="fotografía profesional, retratos corporativos, fotografía empresarial, fotógrafa Panamá, Beatriz Vergara, sesión de fotos, headshots">
+    <meta name="author" content="Beatriz Vergara Studio">
+
+    <!-- Fonts: Playfair Display (Elegant) & Lato (Clean) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <style>
+        :root {
+            --primary-color: #2c2c2c;       /* Dark gray for main text */
+            --secondary-color: #bfa05a;     /* Gold accent */
+            --bg-light: #f8f9fa;            /* Light background */
+            --bg-card: #ffffff;             /* White cards */
+            --text-muted: #6c757d;          /* Readable muted text */
+            --border-color: #e9ecef;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--primary-color);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, .serif-font {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-color);
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            color: var(--primary-color) !important;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .nav-link {
+            color: var(--text-muted) !important;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+            font-weight: 400;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--secondary-color) !important;
+        }
+
+        .navbar-toggler {
+            border-color: var(--border-color);
+        }
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(44, 44, 44, 0.75)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        /* Hero Section */
+        .hero-section {
+            height: 90vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: #f8f9fa;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            animation: fadeInUp 1s ease-out 0.5s backwards;
+        }
+
+        /* About Section */
+        .section-padding {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 2px;
+            background-color: var(--secondary-color);
+            margin: 1rem auto 0;
+        }
+
+        /* Pricing Cards */
+        .pricing-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 2.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            border-radius: 4px;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+            border-color: var(--secondary-color);
+        }
+
+        .price-tag {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            font-family: 'Playfair Display', serif;
+            margin: 1.5rem 0;
+            font-weight: 600;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 2rem;
+            flex-grow: 1;
+        }
+
+        .feature-list li {
+            margin-bottom: 0.8rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            font-size: 1.05rem;
+        }
+
+        .feature-list li::before {
+            content: '•';
+            color: var(--secondary-color);
+            margin-right: 10px;
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        .btn-custom {
+            background-color: transparent;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 10px 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            width: 100%;
+            font-weight: 600;
+        }
+
+        .btn-custom:hover {
+            background-color: var(--primary-color);
+            color: #ffffff;
+        }
+
+        .btn-custom.gold {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            color: #ffffff;
+        }
+        .btn-custom.gold:hover {
+            background-color: #a38644;
+            border-color: #a38644;
+            color: #ffffff;
+        }
+
+        /* Gallery Preview in Cards */
+        .card-img-preview {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+            filter: grayscale(30%);
+            transition: filter 0.3s, transform 0.3s;
+            cursor: pointer;
+            border-radius: 2px;
+        }
+
+        .pricing-card:hover .card-img-preview {
+            filter: grayscale(0%);
+            transform: scale(1.02);
+        }
+
+        /* Contact Section */
+        .contact-info-box {
+            background-color: var(--bg-card);
+            padding: 3rem 2rem;
+            border-radius: 4px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-top: 3px solid var(--secondary-color);
+        }
+
+        .contact-icon {
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .social-link {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-right: 15px;
+            transition: color 0.3s;
+        }
+
+        .social-link:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            padding: 2.5rem 0;
+            text-align: center;
+            color: #adb5bd;
+            font-size: 0.9rem;
+        }
+        
+        footer p {
+            margin-bottom: 0;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Modal Customization */
+        .modal-content {
+            background-color: var(--bg-card);
+            color: var(--primary-color);
+            border: none;
+            border-radius: 4px;
+        }
+        .modal-header {
+            border-bottom: 1px solid var(--border-color);
+        }
+        .modal-footer {
+            border-top: 1px solid var(--border-color);
+        }
+        .btn-close {
+            /* Default dark close button for light modal */
+        }
+    </style>
 </head>
 <body>
 
-    <h1>Bienvenido a mi Portafolio</h1>
-    <p>Aquí puedes ver algunas de mis fotografías corporativas:</p>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand serif-font" href="#"> <img src="img/logo.jpeg" alt="logo" width="100px" height="100px" srcset="">BV Estudio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experiencia">Experiencia</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#paquetes">Paquetes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-    <img src="img/ico/camera_ico.png" alt="Retrato ejecutivo en oficina" width="600">
-    
-    
+    <!-- Hero Section -->
+    <header id="inicio" class="hero-section">
+        <div class="container">
+            <h1 class="hero-title">Capturando la Esencia</h1>
+            <p class="hero-subtitle">Fotografía Profesional & Corporativa</p>
+            <a href="#paquetes" class="btn btn-custom mt-4" style="width: auto; border-color: #fff; color: #fff;">Ver Servicios</a>
+        </div>
+    </header>
+
+    <!-- Experience / About Section -->
+    <section id="experiencia" class="section-padding">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="img/logo.jpeg" alt="Fotógrafa trabajando" class="img-fluid shadow-sm" style="border-radius: 4px;">
+                </div>
+                <div class="col-lg-6 ps-lg-5">
+                    <h2 class="serif-font mb-4">La Experiencia BV</h2>
+                    <p class="lead" style="color: var(--primary-color); font-weight: 300;">Más que imágenes, creamos legados visuales.</p>
+                    <p style="color: var(--text-muted); line-height: 1.8;">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                    </p>
+                    <p style="color: var(--text-muted); line-height: 1.8;">
+                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section id="paquetes" class="section-padding" style="background-color: #ffffff;">
+        <div class="container">
+            <h2 class="section-title serif-font">Nuestros Paquetes</h2>
+            <div class="row g-4">
+                
+                <!-- Package 1 -->
+                <div class="col-md-4">
+                    <div class="pricing-card">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1000&auto=format&fit=crop" 
+                             class="card-img-preview" 
+                             alt="Ejemplo Retrato" 
+                             data-bs-toggle="modal" 
+                             data-bs-target="#imageModal"
+                             onclick="updateModalImage(this.src)">
+                        
+                        <h3 class="serif-font">Paquete Esencial</h3>
+                        <div class="price-tag">$89.00</div>
+                        <ul class="feature-list">
+                            <li>5 Fotos Digitales</li>
+                            <li>2 Fotos tipo Retrato</li>
+                            <li>3 Fotos Cuerpo Entero</li>
+                            <li>1 Cambio de Ropa</li>
+                            <li>Edición Profesional</li>
+                        </ul>
+                        <a href="#contacto" class="btn btn-custom">Reservar</a>
+                    </div>
+                </div>
+
+                <!-- Package 2 -->
+                <div class="col-md-4">
+                    <div class="pricing-card" style="border-color: var(--secondary-color); box-shadow: 0 10px 30px rgba(191, 160, 90, 0.15);">
+                         <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=1000&auto=format&fit=crop" 
+                         class="card-img-preview" 
+                         alt="Ejemplo Fashion" 
+                         data-bs-toggle="modal" 
+                         data-bs-target="#imageModal"
+                         onclick="updateModalImage(this.src)">
+
+                        <h3 class="serif-font">Paquete Premium</h3>
+                        <div class="price-tag">$120.00</div>
+                        <ul class="feature-list">
+                            <li>10 Fotos Digitales</li>
+                            <li>4 Fotos tipo Retrato</li>
+                            <li>6 Fotos Cuerpo Completo</li>
+                            <li>2 Cambios de Ropa</li>
+                            <li>Asesoría de Posing</li>
+                        </ul>
+                        <a href="#contacto" class="btn btn-custom gold">Reservar</a>
+                    </div>
+                </div>
+
+                <!-- Package 3 -->
+                <div class="col-md-4">
+                    <div class="pricing-card">
+                         <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1000&auto=format&fit=crop" 
+                         class="card-img-preview" 
+                         alt="Ejemplo Corporativo" 
+                         data-bs-toggle="modal" 
+                         data-bs-target="#imageModal"
+                         onclick="updateModalImage(this.src)">
+
+                        <h3 class="serif-font">Paquete Empresarial</h3>
+                        <div class="price-tag">$350.00</div>
+                        <ul class="feature-list">
+                            <li>Sesión Corporativa Completa</li>
+                            <li>2 Fotos Retrato (Estilo BV)</li>
+                            <li>Foto en lugar de trabajo</li>
+                            <li>Foto con equipo de trabajo</li>
+                            <li>Uso comercial incluido</li>
+                        </ul>
+                        <a href="#contacto" class="btn btn-custom">Reservar</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="section-padding">
+        <div class="container">
+            <h2 class="section-title serif-font">Contacto</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="contact-info-box text-center">
+                        <h3 class="mb-4 serif-font">Agenda tu Sesión</h3>
+                        <p class="mb-5" style="color: var(--text-muted);">Estamos listos para capturar tu mejor imagen. Contáctanos para verificar disponibilidad.</p>
+                        
+                        <div class="row">
+                            <div class="col-md-4 mb-4">
+                                <i class="bi bi-telephone contact-icon"></i>
+                                <h5 class="mt-2">Celular</h5>
+                                <p><a href="tel:+50765522272" class="text-decoration-none" style="color: var(--text-muted);">6552-2272</a></p>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <i class="bi bi-instagram contact-icon"></i>
+                                <h5 class="mt-2">Instagram</h5>
+                                <p><a href="https://www.instagram.com/bv_estudio507?utm_source=qr&igsh=bTFndDd1OTBoajhn" target="_blank" class="text-decoration-none" style="color: var(--text-muted);">@bv_estudio507</a></p>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <i class="bi bi-envelope contact-icon"></i>
+                                <h5 class="mt-2">Correo</h5>
+                                <p><a href="mailto:beatrizfotografiacorporativa@gmail.com" class="text-decoration-none" style="color: var(--text-muted); font-size: 0.95rem;">beatrizfotografiacorporativa@gmail.com</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Beatriz Vergara Photography. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Image Modal -->
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-0 text-center">
+                    <img src="" id="modalImageDisplay" class="img-fluid w-100" alt="Vista previa ampliada" style="border-radius: 0 0 4px 4px;">
+                </div>
+                <div class="modal-footer border-0 justify-content-center">
+                    <small style="color: var(--text-muted);">Vista previa del estilo fotográfico</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function updateModalImage(src) {
+            document.getElementById('modalImageDisplay').src = src;
+        }
+    </script>
 </body>
 </html>
+
